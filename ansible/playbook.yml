@@ -1,0 +1,6 @@
+---
+- name: Harden and baseline web servers
+  hosts: web
+  become: true
+  roles:
+    - hardening
