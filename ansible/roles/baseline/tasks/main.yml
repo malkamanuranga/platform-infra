@@ -1,0 +1,21 @@
+---
+- name: Install baseline packages
+  ansible.builtin.apt:
+    name: "{{ baseline_packages }}"
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Ensure chrony is running
+  ansible.builtin.service:
+    name: chrony
+    state: started
+    enabled: true
+
+- name: Set login banner
+  ansible.builtin.copy:
+    content: "{{ baseline_motd }}\n"
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: "0644"
