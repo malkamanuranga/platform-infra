@@ -1,7 +1,7 @@
 resource "aws_security_group" "web" {
   name        = "${var.name}-web"
   description = "Web tier security group"
-  vpc_id      = var.vpc_idd
+  vpc_id      = var.vpc_id
 
   ingress {
     description = "HTTPS from allowed ranges"
