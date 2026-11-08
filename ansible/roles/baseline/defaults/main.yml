@@ -1,0 +1,6 @@
+---
+baseline_packages:
+  - chrony
+  - curl
+  - htop
+baseline_motd: "Managed by Ansible. Manual changes will be overwritten."
