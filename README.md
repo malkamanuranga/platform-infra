@@ -65,28 +65,6 @@ flowchart TB
 3. The Trivy scan reports misconfigurations in the log.
 4. Merge only when the checks are green. Applying to AWS is a separate, deliberate step.
 
-## 🧩 Repository structure
-
-platform-infra/
-├── terraform/
-│ ├── modules/
-│ │ ├── vpc/ versions.tf, variables.tf, main.tf, outputs.tf
-│ │ ├── security-group/ variables.tf, main.tf, outputs.tf
-│ │ └── s3-logs/ variables.tf, main.tf, security.tf, outputs.tf
-│ └── envs/
-│ ├── dev/ calls the vpc module
-│ ├── staging/ calls the vpc and security-group modules
-│ └── shared/ calls the s3-logs module
-├── ansible/
-│ ├── ansible.cfg settings: inventory path, roles path, become
-│ ├── inventory/hosts.ini the servers, grouped by role
-│ ├── playbook.yml applies baseline, then hardening, to group "web"
-│ └── roles/
-│ ├── baseline/ packages, time sync, login banner
-│ └── hardening/ SSH lockdown, fail2ban, unattended upgrades
-├── docs/ architecture, security model, cost notes, ADRs
-└── .github/workflows/ validate.yml, iac-scan.yml
-
 
 ## 📄 File guide
 
